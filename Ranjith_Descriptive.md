@@ -34,9 +34,14 @@ TOP 20 dates with maximum publications:
 
 Trend of number of publications over the years:
 
-![image](https://user-images.githubusercontent.com/111641830/236647616-b05a1756-f24b-4202-b59d-9e79b6e0c53e.png)
+![image](https://user-images.githubusercontent.com/111641830/236648054-d13f1d3f-751f-4b97-b1ab-0edc899f1d06.png)
 
 Number of publications by Month:
 
-![image](https://user-images.githubusercontent.com/111641830/236647840-224a78d5-3582-4ea4-afcf-c1acb94b94c2.png)
+![image](https://user-images.githubusercontent.com/111641830/236648062-48993c19-ef28-46d6-9e6b-0eabb5822d4a.png)
+
+
+Number ofpublications by Week of the Day:
+
+![image](https://user-images.githubusercontent.com/111641830/236648234-db440e77-3afa-4d0b-98fc-c5cdb9670a74.png)
 
