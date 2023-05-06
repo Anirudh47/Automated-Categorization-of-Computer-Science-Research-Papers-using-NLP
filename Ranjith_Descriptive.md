@@ -77,7 +77,7 @@ This is an interesting chart, as we see that most of the papers are published on
 
 ### The below table shows us the Top 20 Authors with the maximum number of publications:
 
-| Author                 | Value |
+| Author                 | Number of Publications |
 |------------------------|-------|
 | Yang    Li             | 82    |
 | Yang    Liu            | 73    |
