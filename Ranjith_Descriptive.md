@@ -77,7 +77,28 @@ This is an interesting chart, as we see that most of the papers are published on
 
 ### The below table shows us the Top 20 Authors with the maximum number of publications:
 
-
+| Author                 | Value |
+|------------------------|-------|
+| Yang    Li             | 82    |
+| Yang    Liu            | 73    |
+| Ilias    Diakonikolas  | 67    |
+| Hao    Wang            | 65    |
+| Xin    Wang            | 64    |
+| Xi    Chen             | 64    |
+| Oliver    Knill        | 61    |
+| Krishnendu  Chatterjee | 60    |
+| Iasson    Karafyllis   | 59    |
+| Yu    Wang             | 57    |
+| Scott    Aaronson      | 56    |
+| Yu    Zhang            | 55    |
+| Jaydip    Sen          | 54    |
+| Andris    Ambainis     | 52    |
+| Laszlo    Gyongyosi    | 51    |
+| Wei    Wang            | 51    |
+| Joseph Y.    Halpern   | 51    |
+| Haris    Aziz          | 50    |
+| Noga    Alon           | 47    |
+| Marcus    Hutter       | 47    |
 
 ### Categories:
 
