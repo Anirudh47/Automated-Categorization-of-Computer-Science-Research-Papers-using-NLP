@@ -7,12 +7,18 @@ The findings revealed important patterns, such as the dominance of machine learn
 The model's performance was evaluated using several metrics, and the results showed that it was highly accurate in predicting the categories of research papers. The project's outcomes and recommendations include the development of an automated categorization model that can help researchers and industry practitioners save time and effort in categorizing research papers. The model can also help in identifying research gaps and trends in the field, leading to new discoveries and innovations. The project's benefits extend to researchers, industry practitioners, policymakers, and other stakeholders in the field of computer science. They can benefit from the model's accurate and efficient categorization of research papers, leading to faster access to relevant information and more informed decision-making. The potential problem or opportunity is the increasing volume of research papers in the field of computer science, which makes it challenging to keep up with the latest advancements and discoveries. The proposed solution addresses this problem by providing an automated categorization model that can help streamline the process and make it easier to find and access relevant information. This project is important as it addresses a critical need in the field of computer science and can have significant implications for research, innovation, and technological advancements. As the field continues to grow and evolve, automated categorization models can help keep pace with the increasing volume of research papers and ensure that researchers and industry practitioners have access to the latest information and discoveries.
 
 ## Statement of Scope
-Using NLP and ML modelling approaches, the proposed project attempts to create an automated system for classifying research publications. The project's objectives are:
-*	Employing NLP techniques like tokenization, stemming, and stop-word removal to prepare text data for modelling.
-*	To build a model for classifying research articles into separate categories using ML algorithms.
-*	To assess the efficiency and accuracy of the developed system.
-The research articles from various academic disciplines will be used as the project's sample. The population for generalization will be researchers and professionals in diverse fields who require a reliable and efficient method for automatically classifying research papers.
-Individually written research papers will be the unit of analysis for this project. 
+### Project objectives:
+* To pre-process the dataset of research papers by employing NLP techniques such as tokenization, stemming, and stop-word removal, to prepare the text data for modeling.
+* To develop a classification model using ML algorithms that can accurately categorize research papers into one of the predefined categories listed in the arXiv taxonomy for computer science.
+* To evaluate the efficiency and accuracy of the developed system using various performance metrics, such as precision, recall, and F1 score.
+
+### Variables: 
+The project will use the following variables:
+* Independent Variable: The research papers dataset from the arXiv repository, consisting of over 1.7 million research papers from various academic disciplines.
+* Dependent Variable: The automated system for categorizing research papers developed using NLP and ML techniques.
+* Control Variables: The categories of research papers from the arXiv taxonomy for computer science and the performance metrics used for evaluating the developed system.
+* Unit of Analysis: The individual research papers from the dataset will be categorized using the developed system.
+ 
 
 The following categories have been identified in Computer science department from [arxiv taxonomy](https://arxiv.org/category_taxonomy)
 | Abbreviation | Meaning |
