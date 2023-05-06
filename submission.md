@@ -67,7 +67,7 @@ The following categories have been identified in Computer science department fro
 ## Project Schedule
 
 
-![pic1](assets/chart22.png)
+![pic1](assets/chart222.png)
 
 
 
