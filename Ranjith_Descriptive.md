@@ -1,3 +1,6 @@
+
+The below table shows us the quantitative measures for the complete dataset:
+
 |                            |     Count     |     Mean          |     Median |     Standard Deviation |     Minimum |     Maximum |     25%   |     75%    |
 |----------------------------|---------------|-------------------|------------|------------------------|-------------|-------------|-----------|------------|
 |     Number_of_authors      |     252598    |     3.736035      |     3      |     3.210502           |     1       |     445     |     2     |     5      |
@@ -6,7 +9,16 @@
 |     Abstract_word_count    |     252598    |     106.703185    |     105    |     36.787049          |     0       |     345     |     81    |     131    |
 
 
-TOP 20 dates with maximum publications:
+Plot shows the frequency of word counts in the Abstract for the whole dataset :
+
+![image](https://user-images.githubusercontent.com/111641830/236649707-f393be0d-a890-43dc-8660-49c927094a3f.png)
+
+Plot shows the frequency of word counts in the Title for the whole dataset :
+
+![image](https://user-images.githubusercontent.com/111641830/236649715-396f1753-428d-47cb-8792-5462f41e1842.png)
+
+The below table shows us the Top 20 dates with the maximum number of publications:
+
 | Update_date | Number_of_Publications |
 |:-----------:|:----------------------:|
 |  2007-05-23 | 2656                   |
@@ -31,17 +43,34 @@ TOP 20 dates with maximum publications:
 |  2022-12-06 | 422                    |
 
 
+### The bar chart shows the number of publications over the years :
 
-Trend of number of publications over the years:
+We see a clear trend, the numbner of publications have increased over the years 
 
-![image](https://user-images.githubusercontent.com/111641830/236648054-d13f1d3f-751f-4b97-b1ab-0edc899f1d06.png)
+![image](https://user-images.githubusercontent.com/111641830/236649725-1215405b-39a0-481b-9b5f-4abbc54c18d3.png)
 
-Number of publications by Month:
+### The bar chart shows the number of publications based on the months :
 
-![image](https://user-images.githubusercontent.com/111641830/236648062-48993c19-ef28-46d6-9e6b-0eabb5822d4a.png)
+![image](https://user-images.githubusercontent.com/111641830/236649941-cc0f56ac-8d83-45a5-aed5-efa890ff2f8e.png)
+
+The bar chart shows the number of publications over the years:
+
+![image](https://user-images.githubusercontent.com/111641830/236649946-2a3855e8-d0b6-41e8-987f-5dffc88c238f.png)
 
 
-Number ofpublications by Week of the Day:
+Quantitative measures for the Authors present in the dataset:
 
-![image](https://user-images.githubusercontent.com/111641830/236648234-db440e77-3afa-4d0b-98fc-c5cdb9670a74.png)
+| Authors                | Details  |
+|------------------------|----------|
+| Count                  | 252598   |
+| Unique                 | 130748   |
+| Top Author             | Yang  Li |
+| Number of Publications | 82       |
 
+The below table shows us the Top 20 Authors with the maximum number of publications:
+
+
+
+Categories:
+
+![image](https://user-images.githubusercontent.com/111641830/236649603-22e498dc-c9ed-4dea-b955-28b1361e35d1.png)
