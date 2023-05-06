@@ -79,13 +79,19 @@ The following categories have been identified in Computer science department fro
 
 
 ## Data Preparation
-The data preparation happened in 2 different steps, which were carried out in [prepare_dataframe.py](code/prepare_dataframe.py) and [clean_data.py](code/clean_data.py) :
-* [prepare_dataframe.py](code/prepare_dataframe.py) : Python script to read a JSON, remove irrelevant columns and convert into a dataframe
-* [clean_data.py](code/clean_data.py) : Python script to extract categories, clean the text, remove duplicates etc.
-* [arxiv-metadata-oai-snapshot_sample.json](data/arxiv-metadata-oai-snapshot_sample.json) : Sample of original JSON data. Could not upload the original file due to size limitations on GitHub
-* [computer_science_papers_sample.csv](data/computer_science_papers_sample.csv) : Tab delimited csv containing computer science papers.
-* [text_data_for_modelling_sample.csv](data/text_data_for_modelling_sample.csv) : Tab delimited csv containing information about abstract, paper titles and categories. This will act as our training data.
-* [cleaned_data_for_eda_sample.csv](data/cleaned_data_for_eda_sample.csv) : Tab delimited csv containing papers along with additional information like number of categories, authors etc. This helped up in carrying out EDA which is discussed in upcoming section.
+
+In this project, data preparation was carried out in two steps: [prepare_dataframe.py](code/prepare_dataframe.py) and [clean_data.py](code/clean_data.py):
+
+* The first step, [prepare_dataframe.py](code/prepare_dataframe.py), involved reading a large JSON file containing metadata about scientific papers from the arXiv preprint server. The script removed irrelevant columns and converted the data into a panda's data frame.
+* The second step, [clean_data.py](code/clean_data.py), involved further processing the data to prepare it for machine learning. The script extracted relevant categories from the data, cleaned the text by removing punctuation, stop words, and other non-essential information, and removed duplicate papers. 
+* [arxiv-metadata-oai-snapshot_sample.json](data/arxiv-metadata-oai-snapshot_sample.json) is a sample of the original JSON data used in the project. This file was too large to upload to GitHub, so a smaller sample was used instead.
+
+The output of the data preparation steps includes several CSV files. 
+* [computer_science_papers_sample.csv](data/computer_science_papers_sample.csv) is a tab-delimited file containing computer science papers, which were extracted from the original JSON data and cleaned using the clean_data.py script.
+* [text_data_for_modelling_sample.csv](data/text_data_for_modelling_sample.csv) is another tab-delimited file that contains information about each paper's abstract, title, and categories. This file is specifically designed for use in machine learning models and will be used as training data.
+* Finally, [cleaned_data_for_eda_sample.csv](data/cleaned_data_for_eda_sample.csv) is a tab-delimited file that contains papers along with additional information, such as the number of categories the paper belongs to, the number of authors, and the length of the abstract. This file was used in exploratory data analysis (EDA) to better understand the characteristics of the data.
+
+Overall, the above steps were critical in preparing the raw data for machine learning models and exploratory data analysis. By cleaning and formatting the data in a consistent and organized way, the project team was able to move on to the next steps of the project with a solid foundation.
 
 ### Data Access
 
