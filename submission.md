@@ -9,7 +9,7 @@ The model's performance was evaluated using several metrics, and the results sho
 ## Statement of Scope
 Using NLP and ML modelling approaches, the proposed project attempts to create an automated system for classifying research publications. The project's objectives are:
 *	Employing NLP techniques like tokenization, stemming, and stop-word removal to prepare text data for modelling.
-*	To create a system for classifying research articles into separate categories using ML algorithms.
+*	To build a model for classifying research articles into separate categories using ML algorithms.
 *	To assess the efficiency and accuracy of the developed system.
 The research articles from various academic disciplines will be used as the project's sample. The population for generalization will be researchers and professionals in diverse fields who require a reliable and efficient method for automatically classifying research papers.
 Individually written research papers will be the unit of analysis for this project. 
@@ -59,6 +59,15 @@ The following categories have been identified in Computer science department fro
 | cs.SY  | Systems and Control
 
 ## Project Schedule
+
+
+
+
+
+
+
+
+
 
 
 
