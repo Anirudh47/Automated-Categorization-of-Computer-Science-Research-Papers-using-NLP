@@ -230,6 +230,28 @@ The following piece of code extracts individual categories out of the list of ca
 2. Only the columns 'abstract' and 'title' were considered for modelling as they contain all the text information. Other columns like *submitter*, *authors* etc were not considered. This dataset is stored as [modelling data](data/text_data_for_modelling_sample.csv). Again, due to size limits on GitHub, we were not able to push the entire dataset.
 
 
+![image](https://user-images.githubusercontent.com/111655952/236694868-8315ce66-cf7b-4527-92c6-a53a50b10662.png)
+
+There are around 150 words on average in every document. We restricted the word count to 150 in each of the documents. We then took a subset of 20 % of the overall data randomly while still preserving the distribution of the classes.
+
+![image](https://user-images.githubusercontent.com/111655952/236694899-aeba92b7-17fc-4c57-b94a-e5a248da0dbe.png) Original distribution
+
+![image](https://user-images.githubusercontent.com/111655952/236694919-3ec8dcb4-933c-4efe-a9be-cb8e87d0b8d4.png) Sample distribution
+
+We then grouped the minority classes with less than 3% of the data into a class called “Other”.
+
+#### SVD for Data Decomposition :
+
+* SVD can help reduce the dimensionality of data by decomposing the original matrix into three separate matrices: a left singular matrix, a diagonal matrix, and a right singular matrix.
+
+* The diagonal matrix contains the singular values of the original matrix, which can be thought of as a measure of the importance of each dimension in the data. By retaining only the top-k singular values, where k is a smaller number than the total number of singular values, we can reduce the dimensionality of the data while preserving most of its original information. Here we used the matrix obtained from the “Abstract” column to reduce the data. This is used for modelling to avoid overfitting. 
+
+#### Lemmatization:
+
+First, a text lemmatizer was used to extract the core lemma from all the words. Lemmatizer was preferred over stemming as it preserves the actual meaning of the word. The lemmatizer was built on a random sample of the data eliminating all bias, that is discussed above.
+
+![image](https://user-images.githubusercontent.com/111655952/236695072-baa7c80d-09a0-4d34-a302-432d7d28985b.png)
+
 ### Data Consolidation
 For our use case, data was already in the form of a single JSON file. However, due to limitations on RAM size, the data had to be first divided into chunks and then consolidated after removing the non-relevant data (papers that were not related to CS)
 This was utilized using both dask and pandas. 
@@ -278,6 +300,48 @@ The dataset contains several variables that provide information about academic w
 
  
 ## Descriptive Statistics and Analysis
+
+## Sentiment Analysis: 
+
+Initially, the data was used to create distinct sentiment classes
+
+![image](https://user-images.githubusercontent.com/111655952/236695247-7dc22dfd-b40a-4311-920f-86a64536a5ae.png)  ![image](https://user-images.githubusercontent.com/111655952/236695255-559427fa-0ca5-40a1-838b-dc48443f4b55.png)
+
+![image](https://user-images.githubusercontent.com/111655952/236695381-c7521bb6-ed61-433e-8510-d3b4dd063558.png)  ![image](https://user-images.githubusercontent.com/111655952/236695386-24f5e250-9eb6-4250-a5ea-ba767f1b48ab.png)
+
+The positive sentiment is the majority class in all these analyses. A Vader pretrained model was used to mine all these sentiments in the abstracts. 
+
+For example, take the last 2 records:
+
+![image](https://user-images.githubusercontent.com/111655952/236695418-de835e12-cb6e-4de1-aee0-fe135278fb6f.png)
+
+We indeed find that it is a positive sentiment talking about what the paper has developed better than the existing literature. Also, it’s a strong argument that’s also very technical and involved the use of some jargon. So, our model did a decent job of mining the sentiment classes. 
+
+We also identify the technical sentiment through this word cloud visualization:
+
+![image](https://user-images.githubusercontent.com/111655952/236695508-d93f59a6-13a1-4075-a43a-b9653b296d61.png)
+
+All the top terms used for the technical class talk about the technical advancements and nuances of the paper. 
+
+### Topic Analysis: 
+We extracted the top 5 topics from the classes overall:
+![image](https://user-images.githubusercontent.com/111655952/236695528-6cdac21c-319d-4f33-8f24-5f6ee4d52b34.png)
+
+Here we see that the top 5 topics are all containing technical words that fall under the positive class which is the majority class at around 80 %.  This again shows that most papers are highly technical and talk about the advancements and positive improvements brought about by the introduced paper.
+
+Classification model – base:
+![image](https://user-images.githubusercontent.com/111655952/236695552-e39519c3-3858-43ca-a4f1-1e54eb11111f.png)
+
+We further went on to build a basic random forest classification model to predict the types of papers in the positive sentiment classes that are in the majority. We achieve barely acceptable accuracy. This shows that our model may be overfitting. So, we need to introduce more data for better generalization. So, for our overall modeling process, we use both positive and negative data.
+
+### Named Entity Recognition: 
+
+For our NER process, we found that the abstract text contained no location-based data. We were unable to extract geographic-tagged information. This again makes sense because there is very little geo-info when it comes to highly technical papers.
+
+We were however able to extract the top nouns, verbs, and adjectives from the data as shown below. This again consolidates what we found earlier about the type of data in the majority classes. These nouns, verbs, and adjectives all convey a technical, positive (talks about the advancements of the paper), argumentative (existing methods minuses vs introduced methods positives) approach.
+
+![image](https://user-images.githubusercontent.com/111655952/236695597-03773c7b-0eea-4843-bcee-43f5f533557d.png)  ![image](https://user-images.githubusercontent.com/111655952/236695602-f032bf09-822b-472e-93a4-36c4b34efccc.png)  ![image](https://user-images.githubusercontent.com/111655952/236695608-c02c95ef-8fc9-40a5-81c3-1751eccc87ba.png)
+
 
 
 
