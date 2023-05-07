@@ -338,6 +338,19 @@ for i in range(records.npartitions): # Iterating through all partitions
 ```
 Some of the partitions were processed separately due to the issues with ID column. The format of 'id' column were changed by arxiv, so there were data type issues occurring while calling *compute()* function. Hence the later chunks got processed separately for which data type was defined explicitly.
 
+### Data Splitting:
+
+The data was split into 3 mutually exclusive and cumulatively exhaustive datasets namely:
+
+1.	*Training data*: This data comprised 60% of the entire dataset. This was used for training the model.
+2.	*Validation data*: This was 20% of the entire dataset. This was used to compare models.
+3.	*Test Data*: This was again 20% of the entire dataset. This was used to check what the accuracy of the final model will be on the unseen data.
+
+Since the dataset size was reasonably high, we went ahead with a 60-20-20 split. Even though we trained only on 60% of the entire dataset, it gave us a good chunk of data to train on and provided us with the flexibility to keep a reasonable number of records for validation and test respectively.
+
+The validation and test datasets kept at 20% each enabled us to maintain a proper distribution of classes in each dataset. This would help us capture all the nuances of the dataset in each validation and testing dataset.
+
+This provided us with the ability to check for the accuracy of the model with decent confidence.  
 
 ### Data Dictionary
 The dataset contains several variables that provide information about academic works, such as papers or articles.
