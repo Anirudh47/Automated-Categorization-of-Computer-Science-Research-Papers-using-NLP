@@ -366,5 +366,10 @@ We were however able to extract the top nouns, verbs, and adjectives from the da
 ![image](https://user-images.githubusercontent.com/111655952/236695597-03773c7b-0eea-4843-bcee-43f5f533557d.png)  ![image](https://user-images.githubusercontent.com/111655952/236695602-f032bf09-822b-472e-93a4-36c4b34efccc.png)  ![image](https://user-images.githubusercontent.com/111655952/236695608-c02c95ef-8fc9-40a5-81c3-1751eccc87ba.png)
 
 
+### Data Splitting and Sub-Sampling
 
+### Select Modeling Techniques
 
+### Build the Models
+
+### Assess the Models
