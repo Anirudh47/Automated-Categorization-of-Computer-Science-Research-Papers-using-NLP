@@ -1,3 +1,47 @@
+<h1 align="center">Final Report</h1>
+<h1 align="center">Automated Categorization of Computer Science Research Papers using NLP and Modelling Techniques</h1>
+
+<h3 align="center">Submitted by: </h1>
+<h3 align="center">Guided by : Dr. Bryan Hammer</h1>
+
+
+<h2 align="center">Table of Contents</h1>
+
+- [Executive Summary:](#executive-summary)
+- [Statement of Scope](#statement-of-scope)
+  * [Project objectives:](#project-objectives)
+  * [Variables:](#variables)
+- [Project Schedule](#project-schedule)
+- [Data Preparation](#data-preparation)
+  * [Data Access](#data-access)
+  * [Data Cleaning](#data-cleaning)
+    + [Removing duplicated titles:](#removing-duplicated-titles)
+    + [Removing Non-CS categories:](#removing-non-cs-categories)
+    + [Removing the accents:](#removing-the-accents)
+    + [Removing punctuations:](#removing-punctuations)
+    + [Removing single alphabet words:](#removing-single-alphabet-words)
+  * [Data Transformation](#data-transformation)
+    + [Removing redundant columns:](#removing-redundant-columns)
+    + [Changing Data Type:](#changing-data-type)
+    + [Converted text to lowercase:](#converted-text-to-lowercase)
+  * [Data Reduction](#data-reduction)
+    + [SVD for Data Decomposition :](#svd-for-data-decomposition)
+    + [Lemmatization:](#lemmatization)
+  * [Data Consolidation](#data-consolidation)
+  * [Data Dictionary](#data-dictionary)
+- [Descriptive Statistics and Analysis](#descriptive-statistics-and-analysis)
+  * [Quantitative measures and summary](#quantitative-measures-and-summary)
+  * [Word count analysis](#word-count-analysis)
+  * [Top 20 publication dates](#top-20-publication-dates)
+  * [Trend in number of publications](#trend-in-number-of-publications)
+  * [Quantitative analysis on the authors](#quantitative-analysis-on-the-authors)
+  * [Top 20 Authors](#top-20-authors)
+  * [Popular categories](#popular-categories)
+- [Sentiment Analysis:](#sentiment-analysis)
+  * [Topic Analysis:](#topic-analysis-)
+    + [Classification model – base:](#classification-model---base)
+  * [Named Entity Recognition:](#named-entity-recognition)
+
 ## Executive Summary: 
 
 The proposed project aims to address the problem of efficiently categorizing large volumes of computer science research papers using natural language processing (NLP) and machine learning (ML) techniques.The increasing volume of research papers in the field of computer science makes it challenging for researchers and industry practitioners to keep up with the latest advancements and discoveries.We got the data from arxiv "https://arxiv.org/abs/2206.04615", did scrapped the data from Kaggle website https://www.kaggle.com/datasets/Cornell-University/arxiv and then converted it into a CSV file to perform operations on it. Automated categorization can help to streamline this process and make it easier to find and access relevant information.The project involved the use of a dataset containing over 1.7 million research papers from the arXiv repository. The dataset was pre-processed, cleaned, and transformed to prepare it for analysis. Data reduction techniques were used to select only the most relevant data for modeling. Exploratory data analysis (EDA) was conducted to gain insights into the research papers' characteristics and trends in the field of computer science. 
@@ -321,10 +365,11 @@ The dataset contains several variables that provide information about academic w
  
 ## Descriptive Statistics and Analysis
 
-
 Let's start with the descriptive analysis for the dataset. 
 
-### The below table shows us the quantitative measures for the complete dataset:
+### Quantitative measures and summary
+
+The below table shows us the quantitative measures for the complete dataset:
 
 |                            |     Count     |     Mean          |     Median |     Standard Deviation |     Minimum |     Maximum |     25%   |     75%    |
 |----------------------------|---------------|-------------------|------------|------------------------|-------------|-------------|-----------|------------|
@@ -339,15 +384,19 @@ Let's start with the descriptive analysis for the dataset.
 
 * Title Word Count: The "Title_word_count" variable provides insights into the length of the entry titles. On average, the titles consist of approximately 7.87 words. The distribution of word counts exhibits moderate variability, with a standard deviation of around 2.68. The range of title word counts spans from 0 to 33 words. This suggests that while most titles fall within the 6 to 9-word range, there are entries with shorter or longer titles as well, including some with no words at all.
 
-### Plot shows the frequency of word counts in the Abstract for the whole dataset :
+### Word count analysis
+
+Plot shows the frequency of word counts in the Abstract for the whole dataset :
 
 ![image](https://user-images.githubusercontent.com/111641830/236649707-f393be0d-a890-43dc-8660-49c927094a3f.png)
 
-### Plot shows the frequency of word counts in the Title for the whole dataset :
+Plot shows the frequency of word counts in the Title for the whole dataset :
 
 ![image](https://user-images.githubusercontent.com/111641830/236649715-396f1753-428d-47cb-8792-5462f41e1842.png)
 
-### The below table shows us the Top 20 dates with the maximum number of publications:
+### Top 20 publication dates
+
+The below table shows us the Top 20 dates with the maximum number of publications:
 
 | Update_date | Number_of_Publications |
 |:-----------:|:----------------------:|
@@ -373,25 +422,30 @@ Let's start with the descriptive analysis for the dataset.
 |  2022-12-06 | 422                    |
 
 
-### The bar chart shows the number of publications over the years :
+### Trend in number of publications
+
+The bar chart shows the number of publications over the years :
 
 We see a clear trend, the number of publications have increased over the years. In 2002, less than 5,000 papers were published and in the year 2022, more than 70,000 papers were published. 
 
 ![image](https://user-images.githubusercontent.com/111641830/236649725-1215405b-39a0-481b-9b5f-4abbc54c18d3.png)
 
-### The bar chart shows the number of publications based on the months :
+
+The bar chart shows the number of publications based on the months :
 
 We do not see any specific trend in the number of publication based on the months. Almost all the months have around similar number of papers published.
 
 ![image](https://user-images.githubusercontent.com/111641830/236649941-cc0f56ac-8d83-45a5-aed5-efa890ff2f8e.png)
 
-### The bar chart shows the number of publications based on the Week Days :
+The bar chart shows the number of publications based on the Week Days :
 
 This is an interesting chart, as we see that most of the papers are published on the weekdays which makes sense as publishing centeres and universities are not working over the weekends (Saturday and Sunday). Tuesday is the day, when we see the most number of papers published.
 
 ![image](https://user-images.githubusercontent.com/111641830/236649946-2a3855e8-d0b6-41e8-987f-5dffc88c238f.png)
 
-### Quantitative measures for the Authors present in the dataset :
+### Quantitative analysis on the authors
+
+Quantitative measures for the Authors present in the dataset :
 
 | Authors                | Details  |
 |------------------------|----------|
@@ -400,7 +454,9 @@ This is an interesting chart, as we see that most of the papers are published on
 | Top Author             | Yang  Li |
 | Number of Publications | 82       |
 
-### The below table shows us the Top 20 Authors with the maximum number of publications across all the departments :
+### Top 20 Authors
+
+The below table shows us the Top 20 Authors with the maximum number of publications across all the departments :
 
 | Author                 | Number of Publications |
 |------------------------|-------|
@@ -437,7 +493,9 @@ Third point we observe was related to our output variable: categories. We see th
 
 ![image](https://user-images.githubusercontent.com/111641830/236696016-464d6307-53f2-4780-8204-155cfdb03e44.png)
 
-### The blelow graphs gives us the  idea of the most popular categories of work:
+### Popular categories
+
+The blelow graphs gives us the  idea of the most popular categories of work:
 
 The next step is to check for most common categories. We see that LG (Machine Learning) towers over all other categories, indicating that a lot of work is being done in machine learning.
 
