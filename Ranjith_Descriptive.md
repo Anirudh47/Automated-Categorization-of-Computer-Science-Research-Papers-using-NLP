@@ -1,4 +1,6 @@
 
+Let's start with the descriptive analysis for the dataset. 
+
 ### The below table shows us the quantitative measures for the complete dataset:
 
 |                            |     Count     |     Mean          |     Median |     Standard Deviation |     Minimum |     Maximum |     25%   |     75%    |
@@ -75,7 +77,7 @@ This is an interesting chart, as we see that most of the papers are published on
 | Top Author             | Yang  Li |
 | Number of Publications | 82       |
 
-### The below table shows us the Top 20 Authors with the maximum number of publications:
+### The below table shows us the Top 20 Authors with the maximum number of publications across all the departments :
 
 | Author                 | Number of Publications |
 |------------------------|-------|
@@ -100,6 +102,27 @@ This is an interesting chart, as we see that most of the papers are published on
 | Noga    Alon           | 47    |
 | Marcus    Hutter       | 47    |
 
-### Categories:
+The below graph below shows us the distribution of number of authors for each research paper. As we can see, most of the papers have less than 10 authors, but some of them even had more than 100. In fact the highest number of authors was found to be 445 for one of the papers. The paper is linked [here](https://arxiv.org/abs/2206.04615)
+
+![](assets/eda1.png)
+
+The second one was to find out who the most contributing authors are. We see there are authors above 350 papers. Also we see that some of these are pioneers of AI like Yoshua Bengio
+![](assets/eda2.png)
+
+Third point we observe was related to our output variable: categories. We see that a paper can have up to 7 categories tagged, with most of the papers falling at 2 categories. Mean was found to be 1.9
+
+![](assets/eda3.png)
+
+### The blelow graphs gives us the  idea of the most popular categories of work:
+
+The next step is to check for most common categories. We see that LG (Machine Learning) towers over all other categories, indicating that a lot of work is being done in machine learning.
 
 ![image](https://user-images.githubusercontent.com/111641830/236650510-d88323ad-22ad-4522-9e80-171b18e5f245.png)
+
+The next point will help us in determining what most common words are after the removal of stopwords. Words like 'data', 'model', 'learning' etc are found to be most common in *abstract*. These words will help our model learn that they are talking about machine learning or artificial intelligence. This also substantiates the above point of the EDA: most of the work in CS department is happening in machine learning
+
+![](assets/eda5.png)
+
+The next is most common words from the titles. Words like 'learning', 'networks' are again common, indicating involvement of machine learning. The word 'based' looks a bit odd here.
+
+![](assets/eda6.png)
