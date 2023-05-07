@@ -250,6 +250,22 @@ We then grouped the minority classes with less than 3% of the data into a class 
 
 * The diagonal matrix contains the singular values of the original matrix, which can be thought of as a measure of the importance of each dimension in the data. By retaining only the top-k singular values, where k is a smaller number than the total number of singular values, we can reduce the dimensionality of the data while preserving most of its original information. Here we used the matrix obtained from the “Abstract” column to reduce the data. This is used for modelling to avoid overfitting. 
 
+This stage happened while modelling. We had applied 2 types of feature engineering techniques while working with the text data: Bag-of-words and TF-IDF vectors. These two techniques tend to produce high dimensional and sparse embeddings. For our case, we had more than 70,000 dimensions. Having the model built on this high dimensionality would have multiple issues:
+ a. It would not be able to identify the key features that impact the output variable y
+ b. It would take long time to train.
+ 
+ Hence, these dimensions were reduced to 50 using truncated SVD (Singular Value Decomposition). Following code was used to do that:
+ 
+ ```python
+svd = TruncatedSVD(n_components=50)
+
+# Transforming training, validation and testing dataset
+X_train_reduced = svd.fit_transform(X_train)
+X_valid_reduced = svd.transform(X_valid)
+X_test_reduced = svd.transform(X_test)
+ ```
+
+
 #### Lemmatization:
 
 First, a text lemmatizer was used to extract the core lemma from all the words. Lemmatizer was preferred over stemming as it preserves the actual meaning of the word. The lemmatizer was built on a random sample of the data eliminating all bias, that is discussed above.
