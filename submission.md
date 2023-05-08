@@ -638,7 +638,7 @@ The inherent problem in the dataset was class imbalance, meaning that some class
 
 Following code was used:
 
-* *Code Snippet*
+*Code Snippet*
 ```Python 
 rf = RandomForestClassifier(class_weight='balanced') 
 rf.fit(X_train_reduced, y_train) 
