@@ -1,47 +1,64 @@
 <h1 align="center">Final Report</h1>
 <h1 align="center">Automated Categorization of Computer Science Research Papers using NLP and Modelling Techniques</h1>
 
-<h3 align="center">Submitted by: Team Byte Bandits </h1>
+<h3 align="center">Submitted by: </h3>
+<h3 align="center">Sai Krishna Siddana; Anirudh Bommina; Kushal Kulshrestha; Joe Austin Athimala Maria; Ranjith Kumar Kuppu Rathinam; Sai Chaitanya Reddy Kouratla</h3>
+<h3 align="center">Guided by : Dr. Bryan Hammer</h3>
 
-<h3 align="center">Guided by : Dr. Bryan Hammer</h1>
 
+<h2>Table of Contents</h2>
 
-<h2 align="center">Table of Contents</h1>
-
-- [Executive Summary:](#executive-summary)
-- [Statement of Scope](#statement-of-scope)
-  * [Project objectives:](#project-objectives)
-  * [Variables:](#variables)
-- [Project Schedule](#project-schedule)
-- [Data Preparation](#data-preparation)
-  * [Data Access](#data-access)
-  * [Data Cleaning](#data-cleaning)
-    + [Removing duplicated titles:](#removing-duplicated-titles)
-    + [Removing Non-CS categories:](#removing-non-cs-categories)
-    + [Removing the accents:](#removing-the-accents)
-    + [Removing punctuations:](#removing-punctuations)
-    + [Removing single alphabet words:](#removing-single-alphabet-words)
-  * [Data Transformation](#data-transformation)
-    + [Removing redundant columns:](#removing-redundant-columns)
-    + [Changing Data Type:](#changing-data-type)
-    + [Converted text to lowercase:](#converted-text-to-lowercase)
-  * [Data Reduction](#data-reduction)
-    + [SVD for Data Decomposition :](#svd-for-data-decomposition)
-    + [Lemmatization:](#lemmatization)
-  * [Data Consolidation](#data-consolidation)
-  * [Data Dictionary](#data-dictionary)
-- [Descriptive Statistics and Analysis](#descriptive-statistics-and-analysis)
-  * [Quantitative measures and summary](#quantitative-measures-and-summary)
-  * [Word count analysis](#word-count-analysis)
-  * [Top 20 publication dates](#top-20-publication-dates)
-  * [Trend in number of publications](#trend-in-number-of-publications)
-  * [Quantitative analysis on the authors](#quantitative-analysis-on-the-authors)
-  * [Top 20 Authors](#top-20-authors)
-  * [Popular categories](#popular-categories)
-- [Sentiment Analysis:](#sentiment-analysis)
-  * [Topic Analysis:](#topic-analysis-)
+  * [Executive Summary](#executive-summary)
+  * [Statement of Scope](#statement-of-scope)
+    + [Project objectives](#project-objectives)
+    + [Variables](#variables)
+  * [Meet The Team](#meet-the-team)
+  * [Project Schedule](#project-schedule)
+  * [Data Preparation](#data-preparation)
+    + [Data Access](#data-access)
+    + [Data Cleaning](#data-cleaning)
+      - [Removing duplicated titles](#removing-duplicated-titles)
+      - [Removing Non-CS categories](#removing-non-cs-categories)
+      - [Removing the accents](#removing-the-accents)
+      - [Removing punctuations](#removing-punctuations)
+      - [Removing single alphabet words](#removing-single-alphabet-words)
+    + [Data Transformation](#data-transformation)
+      - [Removing redundant columns](#removing-redundant-columns)
+      - [Changing Data Type](#changing-data-type)
+      - [Converted text to lowercase](#converted-text-to-lowercase)
+    + [Data Reduction](#data-reduction)
+      - [SVD for Data Decomposition](#svd-for-data-decomposition-)
+      - [Lemmatization](#lemmatization)
+    + [Data Consolidation](#data-consolidation)
+    + [Data Dictionary](#data-dictionary)
+  * [Descriptive Statistics and Analysis](#descriptive-statistics-and-analysis)
+    + [Quantitative measures and summary](#quantitative-measures-and-summary)
+    + [Word count analysis](#word-count-analysis)
+    + [Top 20 publication dates](#top-20-publication-dates)
+    + [Trend in number of publications](#trend-in-number-of-publications)
+    + [Quantitative analysis on the authors](#quantitative-analysis-on-the-authors)
+    + [Top 20 Authors](#top-20-authors)
+    + [Popular categories](#popular-categories)
+- [Text Mining and Sentiment Analysis](#text-mining-and-sentiment-analysis)
+    + [Topic Analysis](#topic-analysis)
     + [Classification model – base:](#classification-model---base)
-  * [Named Entity Recognition:](#named-entity-recognition)
+    + [Named Entity Recognition](#named-entity-recognition)
+- [Data Splitting and Subsampling](#data-splitting-and-subsampling)
+    + [Training data](#training-data)
+    + [Validation data](#validation-data)
+    + [Test data](#test-data)
+- [Select Modelling Techniques](#select-modelling-techniques)
+- [Build the Models](#build-the-models)
+    + [Decision Tree](#decision-tree)
+    + [Random Forest](#random-forest)
+    + [Support Vector Machine](#support-vector-machine)
+- [Assessing the Models](#assessing-the-models)
+    + [Accuracy](#accuracy)
+    + [Macro average](#macro-average)
+    + [Weighted average](#weighted-average)
+    + [Strengths and Weaknesses of the various models](#strengths-and-weaknesses-of-the-various-models)
+    + [Model Finalization - Random Forest](#model-finalization-random-forest)
+- [Conclusion and Discussion](#conclusion-and-discussion)
 
 ## Executive Summary: 
 
@@ -527,7 +544,7 @@ The next is most common words from the titles. Words like 'learning', 'networks'
 
 Now that we have a clear understadning about the dataas we looked through the quantiative and descriptive analysis, we are ready to peform the sentiment analysis
 
-# Sentiment Analysis: 
+# Text Mining and Sentiment Analysis: 
 
 Initially, the data was used to create distinct sentiment classes
 
@@ -557,7 +574,7 @@ We extracted the top 5 topics from the classes overall:
 
 Here we see that the top 5 topics are all containing technical words that fall under the positive class which is the majority class at around 80 %.  This again shows that most papers are highly technical and talk about the advancements and positive improvements brought about by the introduced paper.
 
-#### Classification model – base:
+### Classification model – base:
 
 ![image](https://user-images.githubusercontent.com/111655952/236695552-e39519c3-3858-43ca-a4f1-1e54eb11111f.png)
 
@@ -697,7 +714,7 @@ The way to interpret accuracy is the number of correctly predicted instances of 
 
 ![image](https://user-images.githubusercontent.com/111655952/236729233-859f2afc-08ac-463f-9f82-eb303faf5eef.png)
 
-Accuracy = (True Positive + True Negative) / (True Positive + True Negative + False Positive + False Negative)
+Accuracy = True Positive + True Negative / True Positive + True Negative + False Positive + False Negative
 
 Here the accuracy of 65 % in our random forest model means that our model can predict the correct category 65 out of 100 times. So we chose the model that gives us the best predictability towards our 10 classes.
 
