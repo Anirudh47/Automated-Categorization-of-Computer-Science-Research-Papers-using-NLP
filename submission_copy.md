@@ -497,6 +497,42 @@ We were however able to extract the top nouns, verbs, and adjectives from the da
 
 ![image](https://user-images.githubusercontent.com/111655952/236695597-03773c7b-0eea-4843-bcee-43f5f533557d.png)  ![image](https://user-images.githubusercontent.com/111655952/236695602-f032bf09-822b-472e-93a4-36c4b34efccc.png)  ![image](https://user-images.githubusercontent.com/111655952/236695608-c02c95ef-8fc9-40a5-81c3-1751eccc87ba.png)
 
+### Select Modeling Techniques  
+
+Since the goal of this project is to perform classification of research papers into categories, we would want to perform multi-class classification. Multiple approaches will be tried to get the optimal model. 
+While selecting the modeling techniques, we want to have an exhaustive set of models with different capabilities. We will choose to build the following classifier models: 
+
+* Logistic Regression: 
+A linear model. This would help us capture the patterns in the data if it is linearly dependent on the output class. This model has assumptions of linearity of log-odds and no multicollinearity. 
+
+* Decision Tree:
+Would be able to capture the nuances and non-linear nature of the dataset. This is a robust model that has fewer assumptions. 
+
+* Random Forest:
+A cluster of decision trees. Typically works better than a single decision tree. This also has fewer assumptions on the training data.  
+
+* Support Vector Machine: 
+Transforms the data into higher dimension to easily separate them out. The underlying assumption is that the support vectors, or the points that are used to demarcate the boundary, are separable in higher dimensions. 
+
+* We were also aligned to using Naïve Bayes Models, since they work the well with text dataset. But since this dataset has been transformed by using Singular Value Decomposition (SVD), we would not be able to use Naïve Bayes Model.  
+
+The abstract column containing text was used for the overall modelling process. This abstract column was fed into a TF-IDF vectorizer. TF-IDF, short for term frequency-inverse document frequency, is a widely used statistical measure that assesses the relevance of a word to a document within a collection of documents. It works by calculating two metrics for each word in a document: the term frequency, which is the number of times a word appears in the document, and the inverse document frequency, which measures how often the word appears across all documents in the collection. 
+
+We used TF-IDF  to select the most important terms to include in the models, thus improving its accuracy and performance. This has been further explained in the modelling stage below.  
+Code :  
+* Code Snippet* 
+#Building the TF-IDF Matrix  
+
+features = out['Abstract_v2'] 
+vectorizer = TfidfVectorizer(max_features=2500, min_df=10, max_df=0.8) 
+processed_features = vectorizer.fit_transform(features).toarray() 
+
+To present an idea, this is a snapshot of the term-by-document matrix : 
+
+
+Our TF-IDF method gives more weightage to the words appearing less frequently in the term document matrix (Inverse document frequency) and thus selects those terms that are not ubiquitous or commonplace. Thus we ensure proper generalization of our models. 
+Now, coming to the models we talked about above, they would get us the best of all worlds: linearity and non-linearity. They are also easy to model, and easier to interpret, allowing for better generalization and explainability from a business standpoint.  
+
 ### Build the Models
 The text dataset was first processed with 2 types of feature engineering techniques: 
 * One hot encoding or Bag of Words 
@@ -519,27 +555,27 @@ Logistic regression model was not able to converge even after iterating over the
 We found that random forest on TF-IDF vectors outperformed the other models, providing us with 65% accuracy. 
 The following are confusion matrices and classification reports for each of the models: 
 # DECISION TREE
-![image](asstes/DecisionTree.png)
+
 
 # RANDOM FOREST
-![image](asstes/RandomForest.png)
+
 
 # SUPPORT VECTOR MACHINE
-![image](asstes/SVM.png)
+
 
 Since there are 10 classes in our model, the interpretation of precision, recall and f1-score becomes a bit tedious. However, accuracy can be used to measure the performance of each model and compare them side-by-side. 
 We can see that the accuracy of decision tree is 49%, random forest is 65% and that of support vector machine is 63%.  
 
 The way to interpret accuracy is the number of correctly predicted instances of the classes out of all instances. The following diagram is a simple illustration of accuracy for just two classes : Positive and Negative. 
-![image](asstes/accuracy.png)
+
 
 Here the accuracy of 65 % in our random forest model means that our model can predict the correct category 65 out of 100 times. So we chose the model that gives us the best predictability towards our 10 classes.
 
-![image](asstes/accuracyRF.png)
+
 
 Moreover, we can look at how good the model is in predicting each class individually. The F-1 score (A weighted combination of both precision and recall) is decent across the classes.  
 To present a better understanding of the model, we can take a look at the ROC Curve :
 
-![image](asstes/ROCRF.png)
+
 
 This curve plots the True Positive Rate against the False Positive Rate. The best model would be something that maximizes the Area Under the Curve. Here we have 10 curves for 10 classes. The Area Under these Curves all appears decent for all classes.  
