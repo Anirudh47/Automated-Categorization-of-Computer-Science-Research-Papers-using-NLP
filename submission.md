@@ -388,10 +388,10 @@ The below table shows us the quantitative measures for the complete dataset:
 
 |                            |     Count     |     Mean          |     Median |     Standard Deviation |     Minimum |     Maximum |     25%   |     75%    |
 |----------------------------|---------------|-------------------|------------|------------------------|-------------|-------------|-----------|------------|
-|     Number of authors      |     252598    |     3.736035      |     3      |     3.210502           |     1       |     445     |     2     |     5      |
-|     Number of categories   |     252598    |     1.906373      |     2      |     0.75728            |     1       |     7       |     1     |     2      |
-|     Title word count       |     252598    |     7.874465      |     8      |     2.676336           |     0       |     33      |     6     |     9      |
-|     Abstract word count    |     252598    |     106.703185    |     105    |     36.787049          |     0       |     345     |     81    |     131    |
+|     Number_of_authors      |     252598    |     3.736035      |     3      |     3.210502           |     1       |     445     |     2     |     5      |
+|     Number_of_categories   |     252598    |     1.906373      |     2      |     0.75728            |     1       |     7       |     1     |     2      |
+|     Title_word_count       |     252598    |     7.874465      |     8      |     2.676336           |     0       |     33      |     6     |     9      |
+|     Abstract_word_count    |     252598    |     106.703185    |     105    |     36.787049          |     0       |     345     |     81    |     131    |
 
 * Number of Authors: The "Number_of_authors" variable showcases that, on average, each entry in the dataset is associated with around 3.74 authors. However, there is noticeable variability in the number of authors per entry, with values ranging from 1 to as high as 445. This suggests a wide range of collaboration patterns among the entries, with some having only one author while others involve a large number of contributors.
 
@@ -413,7 +413,7 @@ Plot shows the frequency of word counts in the Title for the whole dataset :
 
 The below table shows us the Top 20 dates with the maximum number of publications:
 
-| Published Date | Number of Publications |
+| Update_date | Number_of_Publications |
 |:-----------:|:----------------------:|
 |  2007-05-23 | 2656                   |
 |  2008-02-03 | 672                    |
@@ -606,17 +606,17 @@ Since the goal of this project is to perform the classification of research pape
 
 While selecting the modeling techniques, we want to have an exhaustive set of models with different capabilities.
 
-We choose to build the following classifier models:
+We will choose to build the following classifier models:
 
-* __Logistic Regression__: 
+* Logistic Regression: 
 A linear model. This would help us capture the patterns in the data if it is linearly dependent on the output class. This model has assumptions of linearity of log odds and no multicollinearity.
 
-* __Decision Tree__: 
+* Decision Tree: 
 This would be able to capture the nuances and non-linear nature of the dataset. This is a robust model that has fewer assumptions.
 
-* __Random Forest__: A cluster of decision trees. Typically works better than a single decision tree. This also has fewer assumptions on the training data.
+* Random Forest: A cluster of decision trees. Typically works better than a single decision tree. This also has fewer assumptions on the training data.
 
-* __Support Vector Machine__: Transforms the data into higher dimensions to easily separate them out. The underlying assumption is that the support vectors, or the points that are used to demarcate the boundary, are separable in higher dimensions.
+* Support Vector Machine: Transforms the data into higher dimensions to easily separate them out. The underlying assumption is that the support vectors, or the points that are used to demarcate the boundary, are separable in higher dimensions.
 
 We were also aligned to using Naïve Bayes Models since they work well with text datasets. But since this dataset has been transformed by using Singular Value Decomposition (SVD), we would not be able to use Naïve Bayes Model.
 
@@ -752,4 +752,14 @@ The four key reasons why we selected the Random Forest Model over the others are
 * For our problem, we need a model that can handle the complexity in the features very well, this may include redundant features as well. We have many technical jargons that can’t always be interpreted from a business context without domain expertise, so our model needs to handle these features well, aided by a good feature engineering method like TF-IDF. 
 * The Random Forest model also handles non-linear relationships very well and doesn’t make many assumptions about the data, making it flexible. These are all reasons why the model performed the best as well.
 
-## Conclusion
+# Conclusion and Discussion
+
+In conclusion, the proposed project aimed to address the challenge of categorizing large volumes of computer science research papers using natural language processing (NLP) and machine learning (ML) techniques. The project used a dataset containing over 3,500 research papers from the arXiv repository. The dataset was pre-processed, cleaned, and transformed to prepare it for analysis, and data reduction techniques were used to select only the most relevant data for modeling. Exploratory data analysis (EDA) was conducted to gain insights into the research papers' characteristics and trends in the field of computer science.     
+
+Based on the EDA findings, five models were developed using NLP techniques, using feature selection techniques such as TF-IDF and Bag of Words to categorize research papers into different classes. The models' performance was evaluated using several metrics, and accuracy was used as the fundamental metric for our multi-class model evaluation. The results showed that they were considerably accurate in predicting the categories of research papers. Additionally, 4 iterations of models were built for mining four sets of polarizing emotions (Positive-Negative, Strong-Weak, etc) using the Vader pre-trained model.    
+
+The outcomes and recommendations of the project included the development of an automated categorization model that can help researchers and industry practitioners save time and effort in categorizing research papers. The model can also help in identifying research gaps and trends in the field, leading to new discoveries and innovations. The project's benefits extend to researchers, industry practitioners, policymakers, and other stakeholders in the field of computer science.
+
+Furthermore, the sentiment analysis revealed that the majority of research papers have a positive sentiment and talk about technical advancements, while named entity recognition revealed that the majority of the data contained technical terms exclusive to CS research. We extracted the top Nouns, Verbs, and Adjectives and backed up our findings through the emotions identified by the model as well as the top topics that were extracted as well. Most of the reviews were positive, with positive nouns and adjectives and all topics were technical and had strong arguments.        
+
+Finally, the data was split into training, validation, and test datasets to evaluate the model's accuracy on unseen data. The proposed solution addresses a critical need in the field of computer science and can have significant implications for research, innovation, and technological advancements. As the field continues to grow and evolve, automated categorization models can help keep pace with the increasing volume of research papers and ensure that researchers and industry practitioners have access to the latest information and discoveries
