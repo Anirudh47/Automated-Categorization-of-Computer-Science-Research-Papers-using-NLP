@@ -497,7 +497,7 @@ We were however able to extract the top nouns, verbs, and adjectives from the da
 
 ![image](https://user-images.githubusercontent.com/111655952/236695597-03773c7b-0eea-4843-bcee-43f5f533557d.png)  ![image](https://user-images.githubusercontent.com/111655952/236695602-f032bf09-822b-472e-93a4-36c4b34efccc.png)  ![image](https://user-images.githubusercontent.com/111655952/236695608-c02c95ef-8fc9-40a5-81c3-1751eccc87ba.png)
 
-## Select Modeling Techniques  
+# Select Modeling Techniques  
 
 Since the goal of this project is to perform classification of research papers into categories, we would want to perform multi-class classification. Multiple approaches will be tried to get the optimal model. 
 While selecting the modeling techniques, we want to have an exhaustive set of models with different capabilities. We will choose to build the following classifier models: 
