@@ -497,6 +497,49 @@ We were however able to extract the top nouns, verbs, and adjectives from the da
 
 ![image](https://user-images.githubusercontent.com/111655952/236695597-03773c7b-0eea-4843-bcee-43f5f533557d.png)  ![image](https://user-images.githubusercontent.com/111655952/236695602-f032bf09-822b-472e-93a4-36c4b34efccc.png)  ![image](https://user-images.githubusercontent.com/111655952/236695608-c02c95ef-8fc9-40a5-81c3-1751eccc87ba.png)
 
+### Build the Models
+The text dataset was first processed with 2 types of feature engineering techniques: 
+* One hot encoding or Bag of Words 
+* TF-IDF Vectorization 
+There were multiple models that were trained to both of these features respectively: 
+* Random Forest 
+* Decision Tree 
+* Support Vector Machine 
+* Logistic regression. 
+The inherent problem in the dataset was class imbalance, meaning that some classes had very few samples compared to others. Hence, the models were processed for class-imbalance using a parameter called 'class_weight' inside the machine learning model itself. For example, the random forest classifier was initialized with 'balanced' class_weight, as shown in the code snippet. 
+Following code was used: 
+* Code Snippet*
+```Python 
+rf = RandomForestClassifier(class_weight='balanced') 
+rf.fit(X_train_reduced, y_train) 
+y_pred_rf = rf.predict(X_valid_reduced) 
+accuracy_rf = accuracy_score(y_valid, y_pred) 
+``` 
+Logistic regression model was not able to converge even after iterating over the dataset multiple times. 
+We found that random forest on TF-IDF vectors outperformed the other models, providing us with 65% accuracy. 
+The following are confusion matrices and classification reports for each of the models: 
+# DECISION TREE
+![image](asstes/DecisionTree.png)
 
+# RANDOM FOREST
+![image](asstes/RandomForest.png)
 
+# SUPPORT VECTOR MACHINE
+![image](asstes/SVM.png)
 
+Since there are 10 classes in our model, the interpretation of precision, recall and f1-score becomes a bit tedious. However, accuracy can be used to measure the performance of each model and compare them side-by-side. 
+We can see that the accuracy of decision tree is 49%, random forest is 65% and that of support vector machine is 63%.  
+
+The way to interpret accuracy is the number of correctly predicted instances of the classes out of all instances. The following diagram is a simple illustration of accuracy for just two classes : Positive and Negative. 
+![image](asstes/accuracy.png)
+
+Here the accuracy of 65 % in our random forest model means that our model can predict the correct category 65 out of 100 times. So we chose the model that gives us the best predictability towards our 10 classes.
+
+![image](asstes/accuracyRF.png)
+
+Moreover, we can look at how good the model is in predicting each class individually. The F-1 score (A weighted combination of both precision and recall) is decent across the classes.  
+To present a better understanding of the model, we can take a look at the ROC Curve :
+
+![image](asstes/ROCRF.png)
+
+This curve plots the True Positive Rate against the False Positive Rate. The best model would be something that maximizes the Area Under the Curve. Here we have 10 curves for 10 classes. The Area Under these Curves all appears decent for all classes.  
