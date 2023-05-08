@@ -694,13 +694,60 @@ We can see that the accuracy of decision tree is 49%, random forest is 65% and t
 
 The way to interpret accuracy is the number of correctly predicted instances of the classes out of all instances. The following diagram is a simple illustration of accuracy for just two classes : Positive and Negative. 
 
+![image](https://user-images.githubusercontent.com/111655952/236729233-859f2afc-08ac-463f-9f82-eb303faf5eef.png)
+
+Accuracy = True Positive + True Negative / True Positive + True Negative + False Positive + False Negative
+
 Here the accuracy of 65 % in our random forest model means that our model can predict the correct category 65 out of 100 times. So we chose the model that gives us the best predictability towards our 10 classes.
 
-Moreover, we can look at how good the model is in predicting each class individually. The F-1 score (A weighted combination of both precision and recall) is decent across the classes.  
-To present a better understanding of the model, we can take a look at the ROC Curve :
+![image](https://user-images.githubusercontent.com/111655952/236729296-0f0602f7-caeb-43fc-b084-3d57dd1d1d53.png)
+
+Moreover, we can look at how good the model is in predicting each class individually. The F-1 score (A weighted combination of both precision and recall) is decent across the classes.
+
+To present a better understanding of the model, we can take a look at the ROC Curve:
+
+![image](https://user-images.githubusercontent.com/111655952/236729398-8706692a-8c65-4da3-9026-79ea852d443d.png)
 
 This curve plots the True Positive Rate against the False Positive Rate. The best model would be something that maximizes the Area Under the Curve. Here we have 10 curves for 10 classes. The Area Under these Curves all appears decent for all classes.  
 
+# Assessing the Models:
+
+We have different model assessment strategies like F1 Scores, Average, Macro, and Weighted Averages.
+
+The F1 Score is a weighted combination of precision and recall. Precision is prioritized when the False Positives are to be minimized on priority compared to False negatives, whereas Recall can be used when False Negatives are to be minimized on priority.
+
+The F1 Score here is individual for every class because ours is a Multiclass problem. So, the interpretation of these values goes for a toss.
+
+#### Accuracy:
+Accuracy is the simplest and most common measure of classification performance and is defined as the proportion of correct predictions (i.e., true positives and true negatives) out of the total number of predictions. 
+
+#### Macro average:
+Macro average is a way of computing the average performance across multiple classes, where each class is treated equally. It is calculated by taking the average of the performance metric (e.g., precision, recall, F1-score) for each class separately. Macro average is useful when you want to give equal weight to each class, regardless of the number of examples in each class.
+
+#### Weighted average:
+The weighted average is similar to a macro average but takes into account the number of examples in each class. It is calculated by taking the average of the performance metric, weighted by the proportion of examples in each class. This is useful when you want to give more weight to the performance of larger classes, as they may have a greater impact on the overall performance of the model.
+
+Here we are going with accuracy and weighted average as the metrics. The class imbalance in our data is handled by giving equal weights to each class when modeling.
+
+![image](https://user-images.githubusercontent.com/111655952/236729729-58222b7c-c275-44cb-a706-b6610d68d213.png)
 
 
+### Strengths/Weaknesses of the various models-
 
+| Model | Strengths | Weaknesses |
+|-------| ------- | ------------ |
+| Logistic Regression | Simple and fast to train, making it suitable for large datasets. It can be easily interpreted, making it useful for understanding the relationships between features and the target variable. It can handle both binary and multi-class classification problems. | It may not perform well when the data is highly nonlinear or when there are many features with complex interactions. It assumes a linear relationship between the features and the target variable, which may not hold in some cases. It may be sensitive to outliers and missing data. |
+| Decision Tree | Easy to interpret and visualize, making it useful for understanding the decision-making process. It can handle both categorical and continuous features. It can capture non-linear relationships between features and the target variable. | It is prone to overfitting, especially when the tree is too deep, or the data is noisy. It may not generalize well to new data if the training set is not representative of the population. It may not perform well when there are many features with complex interactions. |
+| Random Forest | Less prone to overfitting than decision trees, thanks to the ensemble learning approach that combines multiple trees. It can handle both categorical and continuous features. It can capture non-linear relationships between features and the target variable. | It is more complex and slower to train than decision trees, especially for large datasets. It may not perform well when there are many features with complex interactions. It may be less interpretable than decision trees because of the ensemble approach. |
+| Support Vector Machine | Effective for high-dimensional data, such as text data, because it uses a kernel trick to map the data to a higher-dimensional space. It can handle both binary and multi-class classification problems. It is less prone to overfitting than some other models because of the regularization parameter. | It may be slower to train and less scalable than other models, especially for large datasets. It may be sensitive to the choice of kernel function and other hyperparameters, which may require careful tuning. It may be less interpretable than some other models, such as decision trees. |
+
+### Model Finalization – Random Forest:
+
+Here we reject the other models and finalize the Random Forest model, because it less prone to overfitting as it is essentially a randomized ensemble of bagged decision trees. We need the model with the best accuracy. Accuracy is a very good metric even though the classes are imbalanced because equal weights were assigned to each class when building the model.
+
+The four key reasons why we selected the Random Forest Model over the others are:
+
+* The model is less prone to overfitting. The computational complexity is offset by taking a sample of the data for modeling. 
+* The model had the best accuracy, and the AUC values for all classes were very desirable for this model.
+* For our problem, we need a model that can handle the complexity in the features very well, this may include redundant features as well. We have many technical jargons that can’t always be interpreted from a business context without domain expertise, so our model needs to handle these features well, aided by a good feature engineering method like TF-IDF. 
+* The Random Forest model also handles non-linear relationships very well and doesn’t make many assumptions about the data, making it flexible. These are all reasons why the model performed the best as well.
