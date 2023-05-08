@@ -1,46 +1,65 @@
 <h1 align="center">Final Report</h1>
 <h1 align="center">Automated Categorization of Computer Science Research Papers using NLP and Modelling Techniques</h1>
 
-<h3 align="center">Submitted by: </h1>
-<h3 align="center">Guided by : Dr. Bryan Hammer</h1>
+<h3 align="center">Submitted by: </h3>
+<h3 align="center">Sai Krishna Siddana; Anirudh Bommina; Kushal Kulshrestha; Joe Austin Athimala Maria; Ranjith Kumar Kuppu Rathinam; Sai Chaitanya Reddy Kouratla</h3>
+<h3 align="center">Guided by : Dr. Bryan Hammer</h3>
 
 
-<h2 align="center">Table of Contents</h1>
+<h2>Table of Contents</h2>
 
-- [Executive Summary:](#executive-summary)
-- [Statement of Scope](#statement-of-scope)
-  * [Project objectives:](#project-objectives)
-  * [Variables:](#variables)
-- [Project Schedule](#project-schedule)
-- [Data Preparation](#data-preparation)
-  * [Data Access](#data-access)
-  * [Data Cleaning](#data-cleaning)
-    + [Removing duplicated titles:](#removing-duplicated-titles)
-    + [Removing Non-CS categories:](#removing-non-cs-categories)
-    + [Removing the accents:](#removing-the-accents)
-    + [Removing punctuations:](#removing-punctuations)
-    + [Removing single alphabet words:](#removing-single-alphabet-words)
-  * [Data Transformation](#data-transformation)
-    + [Removing redundant columns:](#removing-redundant-columns)
-    + [Changing Data Type:](#changing-data-type)
-    + [Converted text to lowercase:](#converted-text-to-lowercase)
-  * [Data Reduction](#data-reduction)
-    + [SVD for Data Decomposition :](#svd-for-data-decomposition)
-    + [Lemmatization:](#lemmatization)
-  * [Data Consolidation](#data-consolidation)
-  * [Data Dictionary](#data-dictionary)
-- [Descriptive Statistics and Analysis](#descriptive-statistics-and-analysis)
-  * [Quantitative measures and summary](#quantitative-measures-and-summary)
-  * [Word count analysis](#word-count-analysis)
-  * [Top 20 publication dates](#top-20-publication-dates)
-  * [Trend in number of publications](#trend-in-number-of-publications)
-  * [Quantitative analysis on the authors](#quantitative-analysis-on-the-authors)
-  * [Top 20 Authors](#top-20-authors)
-  * [Popular categories](#popular-categories)
-- [Sentiment Analysis:](#sentiment-analysis)
-  * [Topic Analysis:](#topic-analysis-)
-    + [Classification model – base:](#classification-model---base)
-  * [Named Entity Recognition:](#named-entity-recognition)
+  * [Executive Summary](#executive-summary)
+  * [Statement of Scope](#statement-of-scope)
+    + [Project objectives](#project-objectives)
+    + [Variables](#variables)
+  * [Meet The Team](#meet-the-team)
+  * [Project Schedule](#project-schedule)
+  * [Data Preparation](#data-preparation)
+    + [Data Access](#data-access)
+    + [Data Cleaning](#data-cleaning)
+      - [Removing duplicated titles](#removing-duplicated-titles)
+      - [Removing Non-CS categories](#removing-non-cs-categories)
+      - [Removing the accents](#removing-the-accents)
+      - [Removing punctuations](#removing-punctuations)
+      - [Removing single alphabet words](#removing-single-alphabet-words)
+    + [Data Transformation](#data-transformation)
+      - [Removing redundant columns](#removing-redundant-columns)
+      - [Changing Data Type](#changing-data-type)
+      - [Converted text to lowercase](#converted-text-to-lowercase)
+    + [Data Reduction](#data-reduction)
+      - [SVD for Data Decomposition](#svd-for-data-decomposition-)
+      - [Lemmatization](#lemmatization)
+    + [Data Consolidation](#data-consolidation)
+    + [Data Dictionary](#data-dictionary)
+  * [Descriptive Statistics and Analysis](#descriptive-statistics-and-analysis)
+    + [Quantitative measures and summary](#quantitative-measures-and-summary)
+    + [Word count analysis](#word-count-analysis)
+    + [Top 20 publication dates](#top-20-publication-dates)
+    + [Trend in number of publications](#trend-in-number-of-publications)
+    + [Quantitative analysis on the authors](#quantitative-analysis-on-the-authors)
+    + [Top 20 Authors](#top-20-authors)
+    + [Popular categories](#popular-categories)
+- [Sentiment Analysis](#sentiment-analysis)
+    + [Topic Analysis](#topic-analysis)
+    + [Classification model](#classification-model)
+    + [Named Entity Recognition](#named-entity-recognition)
+- [Data Splitting and Subsampling](#data-splitting-and-subsampling)
+    + [Training data](#training-data)
+    + [Validation data](#validation-data)
+    + [Test data](#test-data)
+- [Select Modelling Techniques](#select-modelling-techniques)
+- [Build the Models](#build-the-models)
+    + [Decision Tree](#decision-tree)
+    + [Random Forest](#random-forest)
+    + [Support Vector Machine](#support-vector-machine)
+- [Assessing the Models](#assessing-the-models)
+    + [Accuracy](#accuracy)
+    + [Macro average](#macro-average)
+    + [Weighted average](#weighted-average)
+    + [Strengths/Weaknesses of the various models](#strengths-weaknesses-of-the-various-models)
+    + [Model Finalization – Random Forest](#model-finalization---random-forest)
+- [Conclusion and Discussion](#conclusion-and-discussion)
+
 
 ## Executive Summary: 
 
@@ -526,7 +545,7 @@ The next is most common words from the titles. Words like 'learning', 'networks'
 
 Now that we have a clear understadning about the dataas we looked through the quantiative and descriptive analysis, we are ready to peform the sentiment analysis
 
-# Sentiment Analysis: 
+# Text Mining and Sentiment Analysis: 
 
 Initially, the data was used to create distinct sentiment classes
 
@@ -556,7 +575,7 @@ We extracted the top 5 topics from the classes overall:
 
 Here we see that the top 5 topics are all containing technical words that fall under the positive class which is the majority class at around 80 %.  This again shows that most papers are highly technical and talk about the advancements and positive improvements brought about by the introduced paper.
 
-#### Classification model – base:
+### Classification model:
 
 ![image](https://user-images.githubusercontent.com/111655952/236695552-e39519c3-3858-43ca-a4f1-1e54eb11111f.png)
 
@@ -587,20 +606,20 @@ This provided us with the ability to check for the accuracy of the model with de
 The following graphs compare the share of each class in training, validation, and test datasets respectively.
   
 
-#### Training data
+### Training data
 
 ![image](https://user-images.githubusercontent.com/111655952/236713636-9188fdb7-0c65-4180-8652-b40cf6d05783.png)
 
-#### Validation data
+### Validation data
 
 ![image](https://user-images.githubusercontent.com/111655952/236713664-4316206e-58f7-40fd-be41-f66030b45ed3.png)
 
-#### Test data
+### Test data
 
 ![image](https://user-images.githubusercontent.com/111655952/236713686-689e0d1e-73c6-4402-ae80-fde3ec6084d5.png)
 
 
-## Select Modelling Techniques  
+# Select Modelling Techniques  
 
 Since the goal of this project is to perform the classification of research papers into categories, we would want to perform multi-class classification. Multiple approaches will be tried to get the optimal model.
 
@@ -675,17 +694,17 @@ Logistic regression model was not able to converge even after iterating over the
 
 The following are confusion matrices and classification reports for each of the models: 
 
-#### Decision Tree
+### Decision Tree
 
 ![image](https://user-images.githubusercontent.com/111655952/236713871-0468a939-c69d-41a7-b85e-38d64324e652.png)
 
 
-#### Random Forest
+### Random Forest
 
 ![image](https://user-images.githubusercontent.com/111655952/236713878-a71aad67-2c9c-4427-96f6-768dac7a6485.png)
 
 
-#### Support Vector Machine
+### Support Vector Machine
 
 ![image](https://user-images.githubusercontent.com/111655952/236713893-bdb4fd17-054c-4cc7-92d1-fd9e4b8dc6d4.png)
 
@@ -718,13 +737,13 @@ The F1 Score is a weighted combination of precision and recall. Precision is pri
 
 The F1 Score here is individual for every class because ours is a Multiclass problem. So, the interpretation of these values goes for a toss.
 
-#### Accuracy:
+### Accuracy:
 Accuracy is the simplest and most common measure of classification performance and is defined as the proportion of correct predictions (i.e., true positives and true negatives) out of the total number of predictions. 
 
-#### Macro average:
+### Macro average:
 Macro average is a way of computing the average performance across multiple classes, where each class is treated equally. It is calculated by taking the average of the performance metric (e.g., precision, recall, F1-score) for each class separately. Macro average is useful when you want to give equal weight to each class, regardless of the number of examples in each class.
 
-#### Weighted average:
+### Weighted average:
 The weighted average is similar to a macro average but takes into account the number of examples in each class. It is calculated by taking the average of the performance metric, weighted by the proportion of examples in each class. This is useful when you want to give more weight to the performance of larger classes, as they may have a greater impact on the overall performance of the model.
 
 Here we are going with accuracy and weighted average as the metrics. The class imbalance in our data is handled by giving equal weights to each class when modeling.
@@ -732,7 +751,7 @@ Here we are going with accuracy and weighted average as the metrics. The class i
 ![image](https://user-images.githubusercontent.com/111655952/236729729-58222b7c-c275-44cb-a706-b6610d68d213.png)
 
 
-### Strengths/Weaknesses of the various models-
+### Strengths and Weaknesses of the various models
 
 | Model | Strengths | Weaknesses |
 |-------| ------- | ------------ |
