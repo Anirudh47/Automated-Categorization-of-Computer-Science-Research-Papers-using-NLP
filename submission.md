@@ -57,7 +57,7 @@
     + [Macro average](#macro-average)
     + [Weighted average](#weighted-average)
     + [Strengths and Weaknesses of the various models](#strengths-and-weaknesses-of-the-various-models)
-    + [Model Finalization - Random Forest](#model-finalization-random-forest)
+    + [Model Finalization–Random Forest:](#model-finalization-random-forest)
 - [Conclusion and Discussion](#conclusion-and-discussion)
 
 ## Executive Summary: 
@@ -750,7 +750,7 @@ Here we are going with accuracy and weighted average as the metrics. The class i
 ![image](https://user-images.githubusercontent.com/111655952/236729729-58222b7c-c275-44cb-a706-b6610d68d213.png)
 
 
-### Strengths/Weaknesses of the various models-
+### Strengths and Weaknesses of the various models
 
 | Model | Strengths | Weaknesses |
 |-------| ------- | ------------ |
@@ -759,7 +759,7 @@ Here we are going with accuracy and weighted average as the metrics. The class i
 | Random Forest | Less prone to overfitting than decision trees, thanks to the ensemble learning approach that combines multiple trees. It can handle both categorical and continuous features. It can capture non-linear relationships between features and the target variable. | It is more complex and slower to train than decision trees, especially for large datasets. It may not perform well when there are many features with complex interactions. It may be less interpretable than decision trees because of the ensemble approach. |
 | Support Vector Machine | Effective for high-dimensional data, such as text data, because it uses a kernel trick to map the data to a higher-dimensional space. It can handle both binary and multi-class classification problems. It is less prone to overfitting than some other models because of the regularization parameter. | It may be slower to train and less scalable than other models, especially for large datasets. It may be sensitive to the choice of kernel function and other hyperparameters, which may require careful tuning. It may be less interpretable than some other models, such as decision trees. |
 
-### Model Finalization – Random Forest:
+### Model Finalization–Random Forest:
 
 Here we reject the other models and finalize the Random Forest model, because it less prone to overfitting as it is essentially a randomized ensemble of bagged decision trees. We need the model with the best accuracy. Accuracy is a very good metric even though the classes are imbalanced because equal weights were assigned to each class when building the model.
 
