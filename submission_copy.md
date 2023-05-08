@@ -555,13 +555,13 @@ Logistic regression model was not able to converge even after iterating over the
 We found that random forest on TF-IDF vectors outperformed the other models, providing us with 65% accuracy. 
 The following are confusion matrices and classification reports for each of the models: 
 
-### DECISION TREE
+Decision Tree
 
 
-### RANDOM FOREST
+Random Forest
 
 
-### SUPPORT VECTOR MACHINE
+Support Vector Machine
 
 
 Since there are 10 classes in our model, the interpretation of precision, recall and f1-score becomes a bit tedious. However, accuracy can be used to measure the performance of each model and compare them side-by-side. 
