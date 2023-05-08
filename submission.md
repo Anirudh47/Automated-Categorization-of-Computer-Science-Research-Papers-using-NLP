@@ -108,6 +108,21 @@ The following categories have been identified in Computer science department fro
 | cs.SI  | Social and Information Networks
 | cs.SY  | Systems and Control
 
+
+## Meet The Team
+From the left:
+
+* Sai Krishna Siddana
+* Anirudh Bommina
+* Kushal Kulshrestha
+* Joe Austin Athimala Maria
+* Ranjith Kumar Kuppu Rathinam
+* Sai Chaitanya Reddy Kouratla
+
+
+![pic1](assets/team.png)
+
+
 ## Project Schedule
 
 
