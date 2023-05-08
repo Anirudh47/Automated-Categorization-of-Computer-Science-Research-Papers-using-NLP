@@ -603,13 +603,14 @@ Transforms the data into higher dimension to easily separate them out. The under
 The abstract column containing text was used for the overall modelling process. This abstract column was fed into a TF-IDF vectorizer. TF-IDF, short for term frequency-inverse document frequency, is a widely used statistical measure that assesses the relevance of a word to a document within a collection of documents. It works by calculating two metrics for each word in a document: the term frequency, which is the number of times a word appears in the document, and the inverse document frequency, which measures how often the word appears across all documents in the collection. 
 
 We used TF-IDF  to select the most important terms to include in the models, thus improving its accuracy and performance. This has been further explained in the modelling stage below.  
-Code :  
-* Code Snippet* 
-### Building the TF-IDF Matrix  
 
+* Code Snippet: *  
+``` Python
+# Building the TF-IDF Matrix  
 features = out['Abstract_v2'] 
 vectorizer = TfidfVectorizer(max_features=2500, min_df=10, max_df=0.8) 
 processed_features = vectorizer.fit_transform(features).toarray() 
+```
 
 To present an idea, this is a snapshot of the term-by-document matrix: 
 
