@@ -533,7 +533,7 @@ To present an idea, this is a snapshot of the term-by-document matrix :
 Our TF-IDF method gives more weightage to the words appearing less frequently in the term document matrix (Inverse document frequency) and thus selects those terms that are not ubiquitous or commonplace. Thus we ensure proper generalization of our models. 
 Now, coming to the models we talked about above, they would get us the best of all worlds: linearity and non-linearity. They are also easy to model, and easier to interpret, allowing for better generalization and explainability from a business standpoint.  
 
-## Build the Models
+# Build the Models
 The text dataset was first processed with 2 types of feature engineering techniques: 
 * One hot encoding or Bag of Words 
 * TF-IDF Vectorization 
@@ -555,13 +555,13 @@ Logistic regression model was not able to converge even after iterating over the
 We found that random forest on TF-IDF vectors outperformed the other models, providing us with 65% accuracy. 
 The following are confusion matrices and classification reports for each of the models: 
 
-# DECISION TREE
+### DECISION TREE
 
 
-# RANDOM FOREST
+### RANDOM FOREST
 
 
-# SUPPORT VECTOR MACHINE
+### SUPPORT VECTOR MACHINE
 
 
 Since there are 10 classes in our model, the interpretation of precision, recall and f1-score becomes a bit tedious. However, accuracy can be used to measure the performance of each model and compare them side-by-side. 
