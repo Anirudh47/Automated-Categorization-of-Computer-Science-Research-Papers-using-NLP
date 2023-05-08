@@ -388,10 +388,10 @@ The below table shows us the quantitative measures for the complete dataset:
 
 |                            |     Count     |     Mean          |     Median |     Standard Deviation |     Minimum |     Maximum |     25%   |     75%    |
 |----------------------------|---------------|-------------------|------------|------------------------|-------------|-------------|-----------|------------|
-|     Number_of_authors      |     252598    |     3.736035      |     3      |     3.210502           |     1       |     445     |     2     |     5      |
-|     Number_of_categories   |     252598    |     1.906373      |     2      |     0.75728            |     1       |     7       |     1     |     2      |
-|     Title_word_count       |     252598    |     7.874465      |     8      |     2.676336           |     0       |     33      |     6     |     9      |
-|     Abstract_word_count    |     252598    |     106.703185    |     105    |     36.787049          |     0       |     345     |     81    |     131    |
+|     Number of authors      |     252598    |     3.736035      |     3      |     3.210502           |     1       |     445     |     2     |     5      |
+|     Number of categories   |     252598    |     1.906373      |     2      |     0.75728            |     1       |     7       |     1     |     2      |
+|     Title word count       |     252598    |     7.874465      |     8      |     2.676336           |     0       |     33      |     6     |     9      |
+|     Abstract word count    |     252598    |     106.703185    |     105    |     36.787049          |     0       |     345     |     81    |     131    |
 
 * Number of Authors: The "Number_of_authors" variable showcases that, on average, each entry in the dataset is associated with around 3.74 authors. However, there is noticeable variability in the number of authors per entry, with values ranging from 1 to as high as 445. This suggests a wide range of collaboration patterns among the entries, with some having only one author while others involve a large number of contributors.
 
