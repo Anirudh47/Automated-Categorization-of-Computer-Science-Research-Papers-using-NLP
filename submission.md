@@ -751,3 +751,5 @@ The four key reasons why we selected the Random Forest Model over the others are
 * The model had the best accuracy, and the AUC values for all classes were very desirable for this model.
 * For our problem, we need a model that can handle the complexity in the features very well, this may include redundant features as well. We have many technical jargons that can’t always be interpreted from a business context without domain expertise, so our model needs to handle these features well, aided by a good feature engineering method like TF-IDF. 
 * The Random Forest model also handles non-linear relationships very well and doesn’t make many assumptions about the data, making it flexible. These are all reasons why the model performed the best as well.
+
+## Conclusion
