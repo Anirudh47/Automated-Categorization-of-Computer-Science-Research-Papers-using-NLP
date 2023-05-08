@@ -47,7 +47,19 @@ y_test = data_test['Primary category']
 # Training on bag of words
 rf = RandomForestClassifier()
 rf.fit(X_train_reduced, y_train)
-y_pred = rf.predict(X_test_reduced)
+y_pred_rf = rf.predict(X_test_reduced)
+accuracy_rf = accuracy_score(y_valid, y_pred_rf)
+
+dt = DecisionTreeClassifier(class_weight='balanced')
+dt.fit(X_train_reduced, y_train)
+y_pred_dt = dt.predict(X_valid_reduced)
+accuracy_dt = accuracy_score(y_valid, y_pred_dt)
+
+svc = SVC(class_weight='balanced')
+svc.fit(X_train_reduced, y_train)
+y_pred_svc = svc.predict(X_valid_reduced)
+accuracy_svc = accuracy_score(y_valid, y_pred_svc)
+
 
 
 # TF-IDF feature extraction
@@ -73,7 +85,7 @@ y_train.value_counts(normalize=True).plot(kind="bar")
 y_valid.value_counts(normalize=True).plot(kind="bar")
 y_test.value_counts(normalize=True).plot(kind="bar")
 
-
+# Training different models: namely random forest, decision tree and SVC
 rf = RandomForestClassifier(class_weight='balanced')
 rf.fit(X_train_reduced, y_train)
 y_pred_rf = rf.predict(X_valid_reduced)
