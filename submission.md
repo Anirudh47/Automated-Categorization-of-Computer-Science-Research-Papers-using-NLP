@@ -606,17 +606,17 @@ Since the goal of this project is to perform the classification of research pape
 
 While selecting the modeling techniques, we want to have an exhaustive set of models with different capabilities.
 
-We will choose to build the following classifier models:
+We choose to build the following classifier models:
 
-* Logistic Regression: 
+* __Logistic Regression__: 
 A linear model. This would help us capture the patterns in the data if it is linearly dependent on the output class. This model has assumptions of linearity of log odds and no multicollinearity.
 
-* Decision Tree: 
+* __Decision Tree__: 
 This would be able to capture the nuances and non-linear nature of the dataset. This is a robust model that has fewer assumptions.
 
-* Random Forest: A cluster of decision trees. Typically works better than a single decision tree. This also has fewer assumptions on the training data.
+* __Random Forest__: A cluster of decision trees. Typically works better than a single decision tree. This also has fewer assumptions on the training data.
 
-* Support Vector Machine: Transforms the data into higher dimensions to easily separate them out. The underlying assumption is that the support vectors, or the points that are used to demarcate the boundary, are separable in higher dimensions.
+* __Support Vector Machine__: Transforms the data into higher dimensions to easily separate them out. The underlying assumption is that the support vectors, or the points that are used to demarcate the boundary, are separable in higher dimensions.
 
 We were also aligned to using Naïve Bayes Models since they work well with text datasets. But since this dataset has been transformed by using Singular Value Decomposition (SVD), we would not be able to use Naïve Bayes Model.
 
