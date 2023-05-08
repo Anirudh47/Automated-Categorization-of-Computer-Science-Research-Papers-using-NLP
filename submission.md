@@ -604,9 +604,11 @@ The abstract column containing text was used for the overall modelling process. 
 
 We used TF-IDF  to select the most important terms to include in the models, thus improving its accuracy and performance. This has been further explained in the modelling stage below.  
 Code :  
-* Code Snippet* 
+* Code Snippet * 
+
 ### Building the TF-IDF Matrix  
 
+* Code Snippet *
 features = out['Abstract_v2'] 
 vectorizer = TfidfVectorizer(max_features=2500, min_df=10, max_df=0.8) 
 processed_features = vectorizer.fit_transform(features).toarray() 
@@ -637,7 +639,7 @@ The inherent problem in the dataset was class imbalance, meaning that some class
 
 Following code was used:
 
-* *Code Snippet*
+* Code Snippet *
 ```Python 
 rf = RandomForestClassifier(class_weight='balanced') 
 rf.fit(X_train_reduced, y_train) 
