@@ -604,7 +604,7 @@ The abstract column containing text was used for the overall modelling process. 
 
 We used TF-IDF  to select the most important terms to include in the models, thus improving its accuracy and performance. This has been further explained in the modelling stage below.  
 
-* Code Snippet: *  
+Code:  
 ``` Python
 # Building the TF-IDF Matrix  
 features = out['Abstract_v2'] 
@@ -637,8 +637,6 @@ There were multiple models that were trained to both of these features respectiv
 The inherent problem in the dataset was class imbalance, meaning that some classes had very few samples compared to others. Hence, the models were processed for class-imbalance using a parameter called 'class_weight' inside the machine learning model itself. For example, the random forest classifier was initialized with 'balanced' class_weight, as shown in the code snippet.
 
 Following code was used:
-
-*Code Snippet*
 ```Python 
 rf = RandomForestClassifier(class_weight='balanced') 
 rf.fit(X_train_reduced, y_train) 
