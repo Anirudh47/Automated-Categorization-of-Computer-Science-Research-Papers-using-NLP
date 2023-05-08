@@ -697,7 +697,7 @@ The way to interpret accuracy is the number of correctly predicted instances of 
 
 ![image](https://user-images.githubusercontent.com/111655952/236729233-859f2afc-08ac-463f-9f82-eb303faf5eef.png)
 
-Accuracy = True Positive + True Negative / True Positive + True Negative + False Positive + False Negative
+Accuracy = (True Positive + True Negative) / (True Positive + True Negative + False Positive + False Negative)
 
 Here the accuracy of 65 % in our random forest model means that our model can predict the correct category 65 out of 100 times. So we chose the model that gives us the best predictability towards our 10 classes.
 
