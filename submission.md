@@ -338,32 +338,6 @@ for i in range(records.npartitions): # Iterating through all partitions
 ```
 Some of the partitions were processed separately due to the issues with ID column. The format of 'id' column were changed by arxiv, so there were data type issues occurring while calling *compute()* function. Hence the later chunks got processed separately for which data type was defined explicitly.
 
-### Data Splitting and Subsampling:
-
-The data was split into 3 mutually exclusive and cumulatively exhaustive datasets namely:
-
-1.	*Training data*: This data comprised 60% of the entire dataset. This was used for training the model.
-2.	*Validation data*: This was 20% of the entire dataset. This was used to compare models.
-3.	*Test Data*: This was again 20% of the entire dataset. This was used to check what the accuracy of the final model will be on the unseen data.
-
-Since the dataset size was reasonably high, we went ahead with a 60-20-20 split. Even though we trained only on 60% of the entire dataset, it gave us a good chunk of data to train on and provided us with the flexibility to keep a reasonable number of records for validation and test respectively.
-
-The validation and test datasets kept at 20% each enabled us to maintain a proper distribution of classes in each dataset. This would help us capture all the nuances of the dataset in each validation and testing dataset.
-
-This provided us with the ability to check for the accuracy of the model with decent confidence.  
-
-#### Training data
-
-![image](https://user-images.githubusercontent.com/111655952/236713636-9188fdb7-0c65-4180-8652-b40cf6d05783.png)
-
-#### Validation data
-
-![image](https://user-images.githubusercontent.com/111655952/236713664-4316206e-58f7-40fd-be41-f66030b45ed3.png)
-
-#### Test data
-
-![image](https://user-images.githubusercontent.com/111655952/236713686-689e0d1e-73c6-4402-ae80-fde3ec6084d5.png)
-
 
 ### Data Dictionary
 The dataset contains several variables that provide information about academic works, such as papers or articles.
@@ -537,7 +511,7 @@ The next is most common words from the titles. Words like 'learning', 'networks'
 
 Now that we have a clear understadning about the dataas we looked through the quantiative and descriptive analysis, we are ready to peform the sentiment analysis
 
-## Sentiment Analysis: 
+# Sentiment Analysis: 
 
 Initially, the data was used to create distinct sentiment classes
 
@@ -581,28 +555,59 @@ We were however able to extract the top nouns, verbs, and adjectives from the da
 
 ![image](https://user-images.githubusercontent.com/111655952/236695597-03773c7b-0eea-4843-bcee-43f5f533557d.png)  ![image](https://user-images.githubusercontent.com/111655952/236695602-f032bf09-822b-472e-93a4-36c4b34efccc.png)  ![image](https://user-images.githubusercontent.com/111655952/236695608-c02c95ef-8fc9-40a5-81c3-1751eccc87ba.png)
 
+## Data Splitting and Subsampling:
+
+The data was split into 3 mutually exclusive and cumulatively exhaustive datasets namely:
+
+1.	*Training data*: This data comprised 60% of the entire dataset. This was used for training the model.
+2.	*Validation data*: This was 20% of the entire dataset. This was used to compare models.
+3.	*Test Data*: This was again 20% of the entire dataset. This was used to check what the accuracy of the final model will be on the unseen data.
+
+Since the dataset size was reasonably high, we went ahead with a 60-20-20 split. Even though we trained only on 60% of the entire dataset, it gave us a good chunk of data to train on and provided us with the flexibility to keep a reasonable number of records for validation and test respectively.
+
+The validation and test datasets kept at 20% each enabled us to maintain a proper distribution of classes in each dataset. This would help us capture all the nuances of the dataset in each validation and testing dataset.
+
+This provided us with the ability to check for the accuracy of the model with decent confidence.  We also measured the percentage of output classes in each of the datasets and it remains uniform.
+
+The following graphs compare the share of each class in training, validation, and test datasets respectively.
+  
+
+#### Training data
+
+![image](https://user-images.githubusercontent.com/111655952/236713636-9188fdb7-0c65-4180-8652-b40cf6d05783.png)
+
+#### Validation data
+
+![image](https://user-images.githubusercontent.com/111655952/236713664-4316206e-58f7-40fd-be41-f66030b45ed3.png)
+
+#### Test data
+
+![image](https://user-images.githubusercontent.com/111655952/236713686-689e0d1e-73c6-4402-ae80-fde3ec6084d5.png)
+
+
 ## Select Modelling Techniques  
 
-Since the goal of this project is to perform classification of research papers into categories, we would want to perform multi-class classification. Multiple approaches will be tried to get the optimal model. 
-While selecting the modeling techniques, we want to have an exhaustive set of models with different capabilities. We will choose to build the following classifier models: 
+Since the goal of this project is to perform the classification of research papers into categories, we would want to perform multi-class classification. Multiple approaches will be tried to get the optimal model.
+
+While selecting the modeling techniques, we want to have an exhaustive set of models with different capabilities.
+
+We will choose to build the following classifier models:
 
 * Logistic Regression: 
-A linear model. This would help us capture the patterns in the data if it is linearly dependent on the output class. This model has assumptions of linearity of log-odds and no multicollinearity. 
+A linear model. This would help us capture the patterns in the data if it is linearly dependent on the output class. This model has assumptions of linearity of log odds and no multicollinearity.
 
-* Decision Tree:
-Would be able to capture the nuances and non-linear nature of the dataset. This is a robust model that has fewer assumptions. 
+* Decision Tree: 
+This would be able to capture the nuances and non-linear nature of the dataset. This is a robust model that has fewer assumptions.
 
-* Random Forest:
-A cluster of decision trees. Typically works better than a single decision tree. This also has fewer assumptions on the training data.  
+* Random Forest: A cluster of decision trees. Typically works better than a single decision tree. This also has fewer assumptions on the training data.
 
-* Support Vector Machine: 
-Transforms the data into higher dimension to easily separate them out. The underlying assumption is that the support vectors, or the points that are used to demarcate the boundary, are separable in higher dimensions. 
+* Support Vector Machine: Transforms the data into higher dimensions to easily separate them out. The underlying assumption is that the support vectors, or the points that are used to demarcate the boundary, are separable in higher dimensions.
 
-* We were also aligned to using Naïve Bayes Models, since they work the well with text dataset. But since this dataset has been transformed by using Singular Value Decomposition (SVD), we would not be able to use Naïve Bayes Model.  
+We were also aligned to using Naïve Bayes Models since they work well with text datasets. But since this dataset has been transformed by using Singular Value Decomposition (SVD), we would not be able to use Naïve Bayes Model.
 
-The abstract column containing text was used for the overall modelling process. This abstract column was fed into a TF-IDF vectorizer. TF-IDF, short for term frequency-inverse document frequency, is a widely used statistical measure that assesses the relevance of a word to a document within a collection of documents. It works by calculating two metrics for each word in a document: the term frequency, which is the number of times a word appears in the document, and the inverse document frequency, which measures how often the word appears across all documents in the collection. 
+The abstract column containing text was used for the overall modeling process. This abstract column was fed into a TF-IDF vectorizer. TF-IDF, short for term frequency-inverse document frequency, is a widely used statistical measure that assesses the relevance of a word to a document within a collection of documents. It works by calculating two metrics for each word in a document: the term frequency, which is the number of times a word appears in the document, and the inverse document frequency, which measures how often the word appears across all documents in the collection.
 
-We used TF-IDF  to select the most important terms to include in the models, thus improving its accuracy and performance. This has been further explained in the modelling stage below.  
+We used TF-IDF  to select the most important terms to include in the models, thus improving their accuracy and performance. This has been further explained in the modeling stage below. 
 
 Code:  
 ``` Python
@@ -612,15 +617,23 @@ vectorizer = TfidfVectorizer(max_features=2500, min_df=10, max_df=0.8)
 processed_features = vectorizer.fit_transform(features).toarray() 
 ```
 
-To present an idea, this is a snapshot of the term-by-document matrix: 
+To present an idea, this is a snapshot of the term-by-document matrix:
 
-![image](https://user-images.githubusercontent.com/111655952/236713769-47ebf67d-d475-4964-a06e-9bd5f68cb7e3.png)
+![image](https://user-images.githubusercontent.com/111655952/236716660-74fc080e-92fe-4687-9a10-b3f2b248854d.png)
 
+Our TF-IDF method gives more weightage to the words appearing less frequently in the term-document matrix (Inverse document frequency) and thus selects those terms that are not ubiquitous or commonplace. Thus we ensure proper generalization of our models.
+ 
+Now, coming to the models we talked about above, they would get us the best of all worlds: linearity and non-linearity. They are also easy to model, and easier to interpret, allowing for better generalization and explainability from a business standpoint.
 
+Let us summarize the assumptions of each of these models:
 
-Our TF-IDF method gives more weightage to the words appearing less frequently in the term document matrix (Inverse document frequency) and thus selects those terms that are not ubiquitous or commonplace. Thus we ensure proper generalization of our models.
+* Logistic Regression assumes a linear relationship between features and the target variable, and normally distributed errors. Here our data is non-linear and textual. Logistic Regression may not converge very well as the maximum likelihood estimates may be infinite. We need to explore this during modeling.
 
-Now, coming to the models we talked about above, they would get us the best of all worlds: linearity and non-linearity. They are also easy to model, and easier to interpret, allowing for better generalization and explainability from a business standpoint.  
+* Decision Tree assumes that data can be split into homogeneous groups based on the features and uses measures of impurity to determine splits. This is a better model than a model that makes assumptions about data patterns. But it may be prone to overfitting.
+
+* Random Forest is an extension of a Decision Tree that uses ensemble learning to combine multiple trees and reduce overfitting. This might be an ideal model. However, it can get computationally expensive depending on the depth of the trees as well as the size of the training data.
+
+* Support Vector Machine assumes that data can be separated by a hyperplane in a higher-dimensional space, that errors are bounded by a margin parameter, and uses a kernel trick for non-linearly separable data. If optimal hyperparameters are not selected, then this model may not perform well on unseen data.
 
 # Build the Models
 The text dataset was first processed with 2 types of feature engineering techniques:
