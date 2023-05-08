@@ -413,7 +413,7 @@ Plot shows the frequency of word counts in the Title for the whole dataset :
 
 The below table shows us the Top 20 dates with the maximum number of publications:
 
-| Update_date | Number_of_Publications |
+| Published Date | Number of Publications |
 |:-----------:|:----------------------:|
 |  2007-05-23 | 2656                   |
 |  2008-02-03 | 672                    |
