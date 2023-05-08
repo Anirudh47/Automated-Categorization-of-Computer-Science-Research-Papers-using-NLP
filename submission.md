@@ -338,7 +338,7 @@ for i in range(records.npartitions): # Iterating through all partitions
 ```
 Some of the partitions were processed separately due to the issues with ID column. The format of 'id' column were changed by arxiv, so there were data type issues occurring while calling *compute()* function. Hence the later chunks got processed separately for which data type was defined explicitly.
 
-### Data Splitting:
+### Data Splitting and Subsampling:
 
 The data was split into 3 mutually exclusive and cumulatively exhaustive datasets namely:
 
@@ -352,15 +352,15 @@ The validation and test datasets kept at 20% each enabled us to maintain a prope
 
 This provided us with the ability to check for the accuracy of the model with decent confidence.  
 
-Training data
+#### Training data
 
 ![image](https://user-images.githubusercontent.com/111655952/236713636-9188fdb7-0c65-4180-8652-b40cf6d05783.png)
 
-Validation data
+#### Validation data
 
 ![image](https://user-images.githubusercontent.com/111655952/236713664-4316206e-58f7-40fd-be41-f66030b45ed3.png)
 
-Test data
+#### Test data
 
 ![image](https://user-images.githubusercontent.com/111655952/236713686-689e0d1e-73c6-4402-ae80-fde3ec6084d5.png)
 
@@ -581,7 +581,7 @@ We were however able to extract the top nouns, verbs, and adjectives from the da
 
 ![image](https://user-images.githubusercontent.com/111655952/236695597-03773c7b-0eea-4843-bcee-43f5f533557d.png)  ![image](https://user-images.githubusercontent.com/111655952/236695602-f032bf09-822b-472e-93a4-36c4b34efccc.png)  ![image](https://user-images.githubusercontent.com/111655952/236695608-c02c95ef-8fc9-40a5-81c3-1751eccc87ba.png)
 
-# Select Modelling Techniques  
+### Select Modelling Techniques  
 
 Since the goal of this project is to perform classification of research papers into categories, we would want to perform multi-class classification. Multiple approaches will be tried to get the optimal model. 
 While selecting the modeling techniques, we want to have an exhaustive set of models with different capabilities. We will choose to build the following classifier models: 
@@ -605,7 +605,7 @@ The abstract column containing text was used for the overall modelling process. 
 We used TF-IDF  to select the most important terms to include in the models, thus improving its accuracy and performance. This has been further explained in the modelling stage below.  
 Code :  
 * Code Snippet* 
-# Building the TF-IDF Matrix  
+### Building the TF-IDF Matrix  
 
 features = out['Abstract_v2'] 
 vectorizer = TfidfVectorizer(max_features=2500, min_df=10, max_df=0.8) 
@@ -637,7 +637,7 @@ The inherent problem in the dataset was class imbalance, meaning that some class
 
 Following code was used:
 
-* Code Snippet*
+* *Code Snippet*
 ```Python 
 rf = RandomForestClassifier(class_weight='balanced') 
 rf.fit(X_train_reduced, y_train) 
@@ -648,17 +648,17 @@ Logistic regression model was not able to converge even after iterating over the
 
 The following are confusion matrices and classification reports for each of the models: 
 
-Decision Tree
+#### Decision Tree
 
 ![image](https://user-images.githubusercontent.com/111655952/236713871-0468a939-c69d-41a7-b85e-38d64324e652.png)
 
 
-Random Forest
+#### Random Forest
 
 ![image](https://user-images.githubusercontent.com/111655952/236713878-a71aad67-2c9c-4427-96f6-768dac7a6485.png)
 
 
-Support Vector Machine
+#### Support Vector Machine
 
 ![image](https://user-images.githubusercontent.com/111655952/236713893-bdb4fd17-054c-4cc7-92d1-fd9e4b8dc6d4.png)
 
